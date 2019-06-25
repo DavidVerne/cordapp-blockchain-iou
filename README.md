@@ -1,38 +1,21 @@
-<p align="center">
-  <img src="https://www.corda.net/wp-content/uploads/2016/11/fg005_corda_b.png" alt="Corda" width="500">
-</p>
+#IOU Cordapp
 
-# CorDapp Template - Java
+I built a CorDapp to model IOUs on the blockchain. Each IOU records the fact that one node owes another node a certain amount.
 
-Welcome to the Java CorDapp template. The CorDapp template is a stubbed-out CorDapp that you can use to bootstrap 
-your own CorDapps.
+Privacy - Instead of using a gossip protocol to share this information with every node on the network as you would with a traditional blockchain platform.
 
-**This is the Java version of the CorDapp template. The Kotlin equivalent is 
-[here](https://github.com/corda/cordapp-template-kotlin/).**
+Well-known identities - Each Corda node has a well-known identity on the network. This allows us to write code in terms of real identities, rather than anonymous public keys.
 
-# Pre-Requisites
+Re-use of existing, proven technologies - It runs on a Corda node, which is simply a Java process and runs on a regular Java machine (e.g. on your local machine or in the cloud). The nodes will store their data in a standard SQL database
+CorDapps usually define at least three things:
 
-See https://docs.corda.net/getting-set-up.html.
+States - the (possibly shared) facts that are written to the ledger
 
-# Usage
+Flows - the procedures for carrying out specific ledger updates
 
-## Running tests inside IntelliJ
-	
-We recommend editing your IntelliJ preferences so that you use the Gradle runner - this means that the quasar utils
-plugin will make sure that some flags (like ``-javaagent`` - see below) are
-set for you.
+Contracts - the constraints governing how states of a given type can evolve over time
 
-To switch to using the Gradle runner:
-
-* Navigate to ``Build, Execution, Deployment -> Build Tools -> Gradle -> Runner`` (or search for `runner`)
-  * Windows: this is in "Settings"
-  * MacOS: this is in "Preferences"
-* Set "Delegate IDE build/run actions to gradle" to true
-* Set "Run test using:" to "Gradle Test Runner"
-
-If you would prefer to use the built in IntelliJ JUnit test runner, you can run ``gradlew installQuasar`` which will
-copy your quasar JAR file to the lib directory. You will then need to specify ``-javaagent:lib/quasar.jar``
-and set the run directory to the project root directory for each test.
+Our IOU CorDapp is no exception. It will define the following components:
 
 ## Running the nodes
 
