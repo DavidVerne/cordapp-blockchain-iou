@@ -1,4 +1,4 @@
-#IOU Cordapp
+<h1>IOU Cordapp</h1>
 
 I built a CorDapp to model IOUs on the blockchain. Each IOU records the fact that one node owes another node a certain amount.
 
